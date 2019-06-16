@@ -1,13 +1,29 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+from transaction import Transaction
+from response import Response
 
-    def __init__(self, cash_balance):
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
+class Withdraw(Transaction):
 
-    def get_cash_balance(self):
-        return self._cash_balance
+    WITHDRAW_WITHDRAW_AMOUNT= "Withdraw amount"
+
+    def __init__(self, withdraw_amount, date_time, token):
+        super().__init__(date_time, token)
+
+        Withdraw._validate_float(Withdraw.WITHDRAW_WITHDRAW_AMOUNT, withdraw_amount)
+        self._withdraw_amount = withdraw_amount
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @staticmethod

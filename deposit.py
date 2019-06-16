@@ -1,13 +1,21 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+from transaction import Transaction
+from response import Response
 
-    def __init__(self, cash_balance):
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
+class Deposit(Transaction):
+    def __init__(self, deposit_amount, date_time, token, account_balance, membership_num):
+        super().__init__(date_time, token, date_time, token, account_balance, membership_num)
+        self._deposit_amount = deposit_amount
+        self._date_time = date_time
+        self._account_balance = account_balance
 
-    def get_cash_balance(self):
-        return self._cash_balance
+    def deposit(self, amount):
+
+        if self._deposit_amount > 0:
+            self._account_balance += self._deposit_amount
+            Response("Deposit Complete")
+        else:
+            return "Deposit must be higher than 0"
 
 
     @staticmethod

@@ -1,13 +1,9 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+from response import Response
 
-    def __init__(self, cash_balance):
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
-
-    def get_cash_balance(self):
-        return self._cash_balance
+class CheckBalance:
+    def __init__(self, account_balance):
+        self._account_balance = account_balance
 
 
     @staticmethod

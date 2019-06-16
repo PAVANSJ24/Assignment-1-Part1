@@ -1,14 +1,14 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+class Bank:
+    def __init__(self):
+        self._bank_accounts = [
 
-    def __init__(self, cash_balance):
+        ]
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
+    def add_account(self):
+        return NotImplementedError
 
-    def get_cash_balance(self):
-        return self._cash_balance
-
+    def rem_account(self):
+        return NotImplementedError
 
     @staticmethod
     def _validate_str(display_name, str_value):

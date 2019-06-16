@@ -1,13 +1,16 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+from transaction import Transaction
 
-    def __init__(self, cash_balance):
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
+class Response(Transaction):
 
-    def get_cash_balance(self):
-        return self._cash_balance
+    RESPONSE_ACCOUNT_BALANCE= "Account balance"
+    RESPONSE_MEMBERSHIP_NUM= "Membership number"
+
+    def __init__(self, date_time, token):
+        super().__init__(date_time, token)
+        self._input = input
+
+
 
 
     @staticmethod

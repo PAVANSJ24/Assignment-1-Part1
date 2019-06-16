@@ -1,13 +1,30 @@
-class Atm():
-    ATM_CASHBALANCE= "Cash balance"
+import hashlib
 
-    def __init__(self, cash_balance):
 
-        Atm._validate_float(Atm.ATM_CASHBALANCE, cash_balance)
-        self._cash_balance = cash_balance
+class Token:
+    """class for Token"""
+    TOKEN_TOKEN_NUMBER= "Token number"
+    TOKEN_PIN= "PIN"
 
-    def get_cash_balance(self):
-        return self._cash_balance
+    def __init__(self, token_number, pin):
+
+        Token._validate_float(Token.TOKEN_TOKEN_NUMBER, token_number)
+        self._token_number= token_number
+
+        hash_object = hashlib.sha1(pin)
+        hex_dig = hash_object.hexdigest()
+        print(hex_dig)
+
+        Token._validate_int(Token.TOKEN_PIN, pin)
+        self._pin= pin
+
+
+
+
+
+
+
+
 
 
     @staticmethod
@@ -23,7 +40,7 @@ class Atm():
         """ Check if the number is less than 0"""
         if float_value == None or type(float_value) != float:
             raise ValueError(display_name + " must be a valid floating point value")
-        elif float_value < 0.0 :
+        elif float_value < 0.0:
             raise ValueError(display_name + " cannot be negative")
 
     @staticmethod
